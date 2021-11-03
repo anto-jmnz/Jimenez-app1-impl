@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Application {
+    + start()
+    + main()
+    '\ What is necessary to run JavaFX '\
+
+}
+class ToDoList{
+    - Scanner
+    - ArrayList<String> List
+
+
+    + SaveList();
+    + Display();
+    + Progress();
+    + Color();
+}
+
+class TableItem{
+    - String item
+    - String Description
+    - String Due Date
+    - boolean complete
+
+    + getItem();
+    + addItem();
+    + removeItem();
+    + getDescription();
+    + editDescription();
+    + getDueDate();
+    + editDueDate();
+    + completion();
+
+}
+
+Application--o TableItem
+Application--o ToDoList
+@enduml
