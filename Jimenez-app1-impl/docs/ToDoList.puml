@@ -1,30 +1,67 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-class Application {
+class TodoListpplication {
     + start()
     + main()
     '\ What is necessary to run JavaFX '\
 
 }
-class ToDoList{
-    - Scanner
-    - ArrayList<String> List
+class Controller{
+    - FileChooser= new FileChooser();
+    - ObservableList<Item> TodoList= FXCollections.observableArrayList();
+    - LocalDate localDate();
 
+    + initialize(URL location, ResourceBundle resources)
+    + Add
+    + addHelper(String item, String Description,LocalDate Duedate1, Boolean Complete)
+    + RemoveHelper(String item, String Description,LocalDate Duedate1, Boolean Complete)
+    + public void Complete_CB()
+    + public TableColumn<Item, String> getDueDate()
+    + private void ErrorMessage(String title, String message)
 
-    + SaveList();
-    + Display();
-    + Progress();
-    + Color();
+ '\ Buttons '\
+    * Remove (ActionEvent)
+    * Clear(actionEvent)
+    * void Complete_CB(ActionEvent)
+    * public void DueDate1(actionEvent)
+    * public void DueDate1(actionEvent)
+    * public void Edit(actionEvent)
+    * public void HelpButton(actionEvent)
+    * public void DisplayButton(actionEvent)
+    * public void SaveButton(actionEvent)
+    * public void LoadButton(actionEvent)
 }
 
-class TableItem{
-    - String item
-    - String Description
-    - String Due Date
+class HelpController{
+    * TextArea HelpText
+
+    - initialize(URL url, ResourceBundle resources)
+    - private void LoadHELP()
+    - private String helpPageContent()
+
+}
+
+class Item{
+    - String Item
+    - private String Description
+    - private LocalDate DueDate
     - boolean complete
 
+    + public Item(item,description,dueDate,complete);
+    + public Item();
     + getItem();
+    + setItem(item);
+    + public LocalDate getDueDate()
+    + public void setDueDate(LocalDate dueDate)
+    + public LocalDate editDueDate(LocalDate newDueDate)
+    + public boolean isComplete()
+    + public void setComplete(boolean complete)
+    + public String getDescription()
+    + public void setDescription(String Description)
+    + public String editDescription(String newDescription)
+    + public String toString()
+
     + addItem();
     + removeItem();
     + getDescription();
@@ -32,9 +69,23 @@ class TableItem{
     + getDueDate();
     + editDueDate();
     + completion();
-
 }
 
-Application--o TableItem
-Application--o ToDoList
+class EditItem{
+    - TextField Description_Field
+    - DatePicker itemDate
+    - Item item
+
+    + initialize
+    + saveItem
+    + DueDateGet
+    + itemDescription
+    + ErrorMessage
+}
+TodoListpplication--o Controller
+TodoListpplication--o Item
+TodoListpplication--o EditItem
+TodoListpplication--o HelpController
+
+
 @enduml

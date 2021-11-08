@@ -1,11 +1,13 @@
 import org.junit.jupiter.api.Test;
 
+import java.awt.event.ActionEvent;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class ToDoListTest {
+class ControllerTest {
 
     @Test
-    public void SaveList(){
+    void Remove(ActionEvent event){
         // create a file
         // write in the file
 
@@ -19,14 +21,5 @@ class ToDoListTest {
         // compared displayed items
         // if all of them
         // compare all of the items displayed
-    }
-
-    @Test
-    public void Progress(){
-        // compare the value of the formula for each completed value
-    }
-
-    public void Color(){
-        // compare for the scan of the hexadecimal value input as a string
     }
 }

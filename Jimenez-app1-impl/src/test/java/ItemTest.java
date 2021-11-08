@@ -1,12 +1,30 @@
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TableItemTest {
+class ItemTest {
+    String date = "2021-11-07";
+    String newdate = "2021-12-09";
+    LocalDate localDate= LocalDate.parse(date);
+    LocalDate newlocalDate= LocalDate.parse(newdate);
+    ObservableList x= new ObservableListBase(localDate, "cat eats", false);
+
     @Test
-    public String getItem(){
-        // for loop until 256 items
-        // actual and expected a name for the item
+        void getItem(){
+
+
+    }
+
+    @Test
+    void getDueDate(){
+        assertEquals(localDate, x.getDued);
+
+
     }
 
     @Test
@@ -23,7 +41,7 @@ class TableItemTest {
     }
 
     @Test
-    public String getDescription(){
+        void getDescription(){
         // for loop until 256 items
         // actual and expected a name for the description
         //print description
@@ -36,7 +54,7 @@ class TableItemTest {
     }
 
     @Test
-    public void completion(){
+    void completion(){
         //if it is true = 0
         // if it is false =1
     }
